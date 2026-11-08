@@ -1,0 +1,73 @@
+{
+  "name": "pygame-surface-hover-preview",
+  "displayName": "Pygame Surface Hover Preview",
+  "description": "Preview pygame.Surface objects as images when hovering over Python expressions during debugging.",
+  "version": "0.1.2",
+  "publisher": "localdev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Guden-Zuden/vscode-pygame-surface-preview.git"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "pygame",
+    "surface",
+    "debug",
+    "hover",
+    "preview"
+  ],
+  "activationEvents": [
+    "onLanguage:python",
+    "onDebug"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Pygame Surface Hover Preview",
+      "properties": {
+        "pygameSurfacePreview.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable pygame.Surface image previews in Python debug hovers."
+        },
+        "pygameSurfacePreview.maxPreviewDimension": {
+          "type": "integer",
+          "default": 384,
+          "minimum": 32,
+          "maximum": 1024,
+          "description": "Maximum width or height of the preview image, in pixels."
+        },
+        "pygameSurfacePreview.maxPreviewPixels": {
+          "type": "integer",
+          "default": 32768,
+          "minimum": 1024,
+          "maximum": 32768,
+          "description": "Maximum number of pixels sent from the debuggee. Larger surfaces are downscaled; previews may be reduced further to fit debugger response limits."
+        },
+        "pygameSurfacePreview.debuggerTypes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["debugpy", "python"],
+          "description": "Debug adapter types supported by the extension."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.4.5"
+  }
+}
