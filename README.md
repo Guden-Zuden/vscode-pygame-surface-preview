@@ -1,5 +1,6 @@
 # Pygame Surface Hover Preview
 
+本プロジェクトのコードおよびドキュメントの作成にAIを利用しています。
 デバッグ中に Python コード上の `pygame.Surface` 変数へマウスオーバーすると、画像プレビューを表示する VS Code 拡張機能です。
 
 ## できること
